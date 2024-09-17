@@ -8,6 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .question-footer {
@@ -20,3 +21,41 @@ body {
   width: 30rem;
 }
 
+.answer-card {
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+.answer-card:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+.dialog {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(39, 39, 39);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.repeat-button {
+  background-color: rgb(39, 39, 39);
+  color: white;
+  font-weight: 700;
+  border: 1px solid white;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.15s ease-in-out;
+}
+.repeat-button:hover {
+  background-color: rgb(54, 54, 54);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.d-none {
+  display: none;
+}

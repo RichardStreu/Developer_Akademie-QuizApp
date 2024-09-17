@@ -20,71 +20,42 @@
   </head>
   <body onload="init()">
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">QuizApp</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
+        <span class="navbar-brand mb-0 h1">QuizApp</span>
       </div>
     </nav>
 
     <!-- card -->
     <div class="wrapper-center">
+
+      <div id="dialog" class="dialog d-none">
+        <h1>Quiz beendet
+        </h1>
+        <div>Du hast <b id="reachedPoints"></b> von <b>20</b><span> möglichen Punkten erreicht.</span></div>
+        <button onclick="hideEndDialog()" id="repeatButton" class="repeat-button">Quiz wiederholen</button>
+      </div>
+
       <div class="card quiz-card">
         <img src="./notes/Quizapp/school-supplies-7069763_1280.jpg" class="card-img-top" alt="..." />
         <div class="card-body">
-          <h5 id="question" class="card-title">Frage</h5>
-          <div class="card mb-2">
-            <div id="answer-1" class="card-body">Antwort</div>
+          <h5 id="questionText" class="card-title">Frage</h5>
+          <div class="card mb-2 answer-card">
+            <div id="answer_1" class="card-body">Antwort</div>
           </div>
-          <div class="card mb-2">
-            <div id="answer-2" class="card-body">Antwort</div>
+          <div class="card mb-2 answer-card">
+            <div id="answer_2" class="card-body">Antwort</div>
           </div>
-          <div class="card mb-2">
-            <div id="answer-3" class="card-body">Antwort</div>
+          <div class="card mb-2 answer-card">
+            <div id="answer_3" class="card-body">Antwort</div>
           </div>
-          <div class="card mb-2">
-            <div id="answer-4" class="card-body">Antwort</div>
+          <div class="card mb-2 answer-card">
+            <div id="answer_4" class="card-body">Antwort</div>
           </div>
 
           <div class="question-footer pt-2">
-            <div><b>1</b> von <b id="questionsLength">5</b> Fragen</div>
-            <button class="btn btn-primary">Nächste Frage</button>
+            <div><b id="currentNumberOfQuestions">1</b> von <b id="questionsLength">5</b> Fragen</div>
+            <button onclick="showNextQuestion()" class="btn btn-primary">Nächste Frage</button>
           </div>
         </div>
       </div>
