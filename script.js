@@ -230,11 +230,13 @@ function hideEndDialog() {
 }
 
 function doAnswer(answer) {
-  if (answer == questions[currentQuestion].right_answer) {
+  let rightAnswer = questions[currentQuestion].right_answer;
+  if (answer == rightAnswer) {
     chooseRightAnswer(answer);
     highlightRightAnswer(answer);
   } else {
     highlightWrongAnswer(answer);
+    highlightRightAnswer(rightAnswer);
     chooseFalseAnswer(answer);
   }
 }
@@ -249,7 +251,6 @@ function chooseRightAnswer() {
 function chooseFalseAnswer() {
   nextQuestionAvialable = true;
   removeOnclicks();
-  console.log("got the false answer");
 }
 
 function highlightRightAnswer(answer) {
