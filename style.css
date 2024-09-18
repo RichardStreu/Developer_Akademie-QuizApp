@@ -24,9 +24,11 @@ body {
 .answer-card {
   cursor: pointer;
   transition: all 0.15s ease-in-out;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 .answer-card:hover {
-  background-color: rgba(128, 128, 128, 0.1);
+  background-color: rgba(207, 187, 0, 0.151);
 }
 .card-img-top {
   filter: brightness(60%);
@@ -77,9 +79,11 @@ body {
 }
 
 .highlight-right-answer {
-  background-color: green;
+  background-color: rgb(0, 94, 0);
+  color: white;
 }
 
 .highlight-wrong-answer {
-  background-color: red;
+  background-color: rgb(163, 0, 0);
+  color: white;
 }
