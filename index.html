@@ -15,7 +15,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
     <title>QuizApp</title>
   </head>
   <body onload="init()">
@@ -42,21 +42,21 @@
 
         <div class="card-body">
           <div class="card mb-2 answer-card">
-            <div id="answer_1" class="card-body">Antwort</div>
+            <div id="answer_1" class="card-body answer-inner-card">Antwort</div>
           </div>
           <div class="card mb-2 answer-card">
-            <div id="answer_2" class="card-body">Antwort</div>
+            <div id="answer_2" class="card-body answer-inner-card">Antwort</div>
           </div>
           <div class="card mb-2 answer-card">
-            <div id="answer_3" class="card-body">Antwort</div>
+            <div id="answer_3" class="card-body answer-inner-card">Antwort</div>
           </div>
           <div class="card mb-2 answer-card">
-            <div id="answer_4" class="card-body">Antwort</div>
+            <div id="answer_4" class="card-body answer-inner-card">Antwort</div>
           </div>
 
           <div class="question-footer pt-2">
             <div><b id="currentNumberOfQuestions">1</b> von <b id="questionsLength">5</b> Fragen</div>
-            <button onclick="showNextQuestion()" class="btn btn-primary">Nächste Frage</button>
+            <button id="nextQuestBtn" onclick="showNextQuestion()" class="btn btn-primary" disabled>Nächste Frage</button>
           </div>
         </div>
       </div>

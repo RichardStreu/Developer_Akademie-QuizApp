@@ -164,6 +164,7 @@ let questions = [
 let currentQuestion = 0;
 let nextQuestionAvialable = false;
 let rigthAnswers = 0;
+const nextQuestBtnRef = document.getElementById("nextQuestBtn");
 
 function init() {
   document.getElementById("questionsLength").innerHTML = questions.length;
@@ -211,6 +212,7 @@ function showNextQuestion() {
     currentQuestion++;
     showCurrentQuestion();
     nextQuestionAvialable = false;
+    nextQuestBtnRef.disabled = true;
   } else {
     return;
   }
@@ -231,26 +233,16 @@ function hideEndDialog() {
 
 function doAnswer(answer) {
   let rightAnswer = questions[currentQuestion].right_answer;
+  nextQuestionAvialable = true;
+  nextQuestBtnRef.disabled = false;
+  removeOnclicks();
   if (answer == rightAnswer) {
-    chooseRightAnswer(answer);
+    rigthAnswers++;
     highlightRightAnswer(answer);
   } else {
     highlightWrongAnswer(answer);
     highlightRightAnswer(rightAnswer);
-    chooseFalseAnswer(answer);
   }
-}
-
-function chooseRightAnswer() {
-  nextQuestionAvialable = true;
-  removeOnclicks();
-  rigthAnswers++;
-  console.log(rigthAnswers);
-}
-
-function chooseFalseAnswer() {
-  nextQuestionAvialable = true;
-  removeOnclicks();
 }
 
 function highlightRightAnswer(answer) {
@@ -262,12 +254,6 @@ function highlightWrongAnswer(answer) {
 }
 
 function removeHighlightAnswerClasses() {
-  document.getElementById("answer_1").classList.remove("highlight-right-answer");
-  document.getElementById("answer_2").classList.remove("highlight-right-answer");
-  document.getElementById("answer_3").classList.remove("highlight-right-answer");
-  document.getElementById("answer_4").classList.remove("highlight-right-answer");
-  document.getElementById("answer_1").classList.remove("highlight-wrong-answer");
-  document.getElementById("answer_2").classList.remove("highlight-wrong-answer");
-  document.getElementById("answer_3").classList.remove("highlight-wrong-answer");
-  document.getElementById("answer_4").classList.remove("highlight-wrong-answer");
+  document.querySelectorAll(".answer-inner-card").forEach((element) => element.classList.remove("highlight-right-answer"));
+  document.querySelectorAll(".answer-inner-card").forEach((element) => element.classList.remove("highlight-wrong-answer"));
 }
