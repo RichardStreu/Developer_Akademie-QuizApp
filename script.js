@@ -161,6 +161,7 @@ let questions = [
   },
 ];
 
+let numberOfQuestions = questions.length;
 let currentQuestion = 0;
 let nextQuestionAvialable = false;
 let rigthAnswers = 0;
@@ -181,6 +182,7 @@ function showCurrentQuestion() {
   document.getElementById("currentNumberOfQuestions").innerHTML = currentQuestion + 1;
   removeHighlightAnswerClasses();
   addOnclicks();
+  updateProgressBar();
 }
 
 function addOnclicks() {
@@ -256,4 +258,11 @@ function highlightWrongAnswer(answer) {
 function removeHighlightAnswerClasses() {
   document.querySelectorAll(".answer-inner-card").forEach((element) => element.classList.remove("highlight-right-answer"));
   document.querySelectorAll(".answer-inner-card").forEach((element) => element.classList.remove("highlight-wrong-answer"));
+}
+
+function updateProgressBar() {
+  let progressInPercent = Math.round((100 / numberOfQuestions) * currentQuestion);
+  document.getElementById("progressBar").style.width = `${progressInPercent}%`;
+  document.getElementById("progressBar").setAttribute("aria-valuenow", progressInPercent);
+  document.getElementById("progressBar").innerText = `${progressInPercent}%`;
 }
