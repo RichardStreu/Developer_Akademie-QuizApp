@@ -28,18 +28,19 @@
 
     <!-- card -->
     <div class="wrapper-center">
-
       <div id="dialog" class="dialog d-none">
-        <h1>Quiz beendet
-        </h1>
+        <h1>Quiz beendet</h1>
         <div>Du hast <b id="reachedPoints"></b> von <b>20</b><span> möglichen Punkten erreicht.</span></div>
         <button onclick="hideEndDialog()" id="repeatButton" class="repeat-button">Quiz wiederholen</button>
       </div>
 
       <div class="card quiz-card">
-        <img src="./notes/Quizapp/school-supplies-7069763_1280.jpg" class="card-img-top" alt="..." />
+        <div class="img-question-box">
+          <h5 id="questionText" class="card-title question-text">Frage</h5>
+          <img src="./notes/Quizapp/school-supplies-7069763_1280.jpg" class="card-img-top" alt="..." />
+        </div>
+
         <div class="card-body">
-          <h5 id="questionText" class="card-title">Frage</h5>
           <div class="card mb-2 answer-card">
             <div id="answer_1" class="card-body">Antwort</div>
           </div>

@@ -28,6 +28,22 @@ body {
 .answer-card:hover {
   background-color: rgba(128, 128, 128, 0.1);
 }
+.card-img-top {
+  filter: brightness(60%);
+}
+.img-question-box {
+  position: relative;
+}
+.question-text {
+  position: absolute;
+  color: white;
+  z-index: 500;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .dialog {
   position: absolute;
   width: 100%;
