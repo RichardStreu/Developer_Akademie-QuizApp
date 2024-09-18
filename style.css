@@ -27,6 +27,9 @@ body {
   border-radius: 0.5rem;
   overflow: hidden;
 }
+.answer-card:active {
+  cursor: grab;
+}
 .answer-card:hover {
   background-color: rgba(207, 187, 0, 0.151);
 }

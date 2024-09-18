@@ -204,20 +204,24 @@ function addOnclicks() {
 }
 
 function removeOnclicks() {
-  document.getElementById("answer_1").onclick = "";
-  document.getElementById("answer_2").onclick = "";
-  document.getElementById("answer_3").onclick = "";
-  document.getElementById("answer_4").onclick = "";
+  document.querySelectorAll(".answer-inner-card").forEach((element) => (element.onclick = ""));
+}
+
+function prepareNextQuestion() {
+  currentQuestion++;
+  showCurrentQuestion();
+  nextQuestionAvialable = false;
+  nextQuestBtnRef.disabled = true;
 }
 
 function showNextQuestion() {
   if (currentQuestion + 1 == questions.length) {
     showEndDialog();
+  } else if (currentQuestion + 2 == questions.length && nextQuestionAvialable) {
+    document.getElementById("nextQuestBtn").innerText = "Ergebnis";
+    prepareNextQuestion();
   } else if (currentQuestion < questions.length && nextQuestionAvialable) {
-    currentQuestion++;
-    showCurrentQuestion();
-    nextQuestionAvialable = false;
-    nextQuestBtnRef.disabled = true;
+    prepareNextQuestion();
   } else {
     return;
   }
@@ -233,6 +237,7 @@ function hideEndDialog() {
   currentQuestion = 0;
   nextQuestionAvialable = false;
   rigthAnswers = 0;
+  document.getElementById("nextQuestBtn").innerText = "Nächste Frage";
   showCurrentQuestion();
 }
 
