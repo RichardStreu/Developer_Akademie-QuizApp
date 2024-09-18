@@ -75,3 +75,11 @@ body {
 .d-none {
   display: none;
 }
+
+.highlight-right-answer {
+  background-color: green;
+}
+
+.highlight-wrong-answer {
+  background-color: red;
+}

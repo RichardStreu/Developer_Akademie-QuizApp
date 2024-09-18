@@ -21,7 +21,7 @@ let questions = [
     answer_2: "Computer Style System",
     answer_3: "Creative Style Setup",
     answer_4: "Cascading System Style",
-    right_answer: "answer_1"
+    right_answer: "answer_1",
   },
   {
     question: "Was ist ein Browser?",
@@ -29,7 +29,7 @@ let questions = [
     answer_2: "Ein E-Mail-Programm",
     answer_3: "Ein Webanwendungs-Tool",
     answer_4: "Ein Programm zur Anzeige von Webseiten",
-    right_answer: "answer_4"
+    right_answer: "answer_4",
   },
   {
     question: "Welches dieser Protokolle wird für Webseiten verwendet?",
@@ -37,7 +37,7 @@ let questions = [
     answer_2: "FTP",
     answer_3: "SMTP",
     answer_4: "SSH",
-    right_answer: "answer_1"
+    right_answer: "answer_1",
   },
   {
     question: "Was ist JavaScript?",
@@ -45,7 +45,7 @@ let questions = [
     answer_2: "Ein Betriebssystem",
     answer_3: "Eine Datenbank",
     answer_4: "Ein Texteditor",
-    right_answer: "answer_1"
+    right_answer: "answer_1",
   },
   {
     question: "Welches Unternehmen hat den Webbrowser Chrome entwickelt?",
@@ -53,7 +53,7 @@ let questions = [
     answer_2: "Apple",
     answer_3: "Google",
     answer_4: "Mozilla",
-    right_answer: "answer_3"
+    right_answer: "answer_3",
   },
   {
     question: "Welche Sprache ist keine Programmiersprache?",
@@ -61,7 +61,7 @@ let questions = [
     answer_2: "Java",
     answer_3: "C#",
     answer_4: "Ruby",
-    right_answer: "answer_1"
+    right_answer: "answer_1",
   },
   {
     question: "Welches Framework wird oft für Frontend-Entwicklung verwendet?",
@@ -69,7 +69,7 @@ let questions = [
     answer_2: "React",
     answer_3: "Django",
     answer_4: "Laravel",
-    right_answer: "answer_2"
+    right_answer: "answer_2",
   },
   {
     question: "Was macht die Methode 'push' in JavaScript?",
@@ -77,7 +77,7 @@ let questions = [
     answer_2: "Entfernt das letzte Element eines Arrays",
     answer_3: "Fügt ein Element an das Ende eines Arrays hinzu",
     answer_4: "Sortiert das Array",
-    right_answer: "answer_3"
+    right_answer: "answer_3",
   },
   {
     question: "Wofür steht 'SQL'?",
@@ -85,7 +85,7 @@ let questions = [
     answer_2: "Simple Query Language",
     answer_3: "Sequential Query Language",
     answer_4: "System Query Language",
-    right_answer: "answer_1"
+    right_answer: "answer_1",
   },
   {
     question: "Was ist Git?",
@@ -93,7 +93,7 @@ let questions = [
     answer_2: "Ein Versionskontrollsystem",
     answer_3: "Ein Texteditor",
     answer_4: "Ein Datenbank-Management-Tool",
-    right_answer: "answer_2"
+    right_answer: "answer_2",
   },
   {
     question: "Welches Unternehmen hat Linux entwickelt?",
@@ -101,7 +101,7 @@ let questions = [
     answer_2: "Microsoft",
     answer_3: "Linus Torvalds",
     answer_4: "IBM",
-    right_answer: "answer_3"
+    right_answer: "answer_3",
   },
   {
     question: "Was ist ein Repository in Git?",
@@ -109,7 +109,7 @@ let questions = [
     answer_2: "Eine Datenbank",
     answer_3: "Ein Paketmanager",
     answer_4: "Ein Code-Editor",
-    right_answer: "answer_1"
+    right_answer: "answer_1",
   },
   {
     question: "Welcher dieser Tags ist kein HTML-Tag?",
@@ -117,7 +117,7 @@ let questions = [
     answer_2: "span",
     answer_3: "box",
     answer_4: "img",
-    right_answer: "answer_3"
+    right_answer: "answer_3",
   },
   {
     question: "Welches dieser Datenbanken ist eine NoSQL-Datenbank?",
@@ -125,7 +125,7 @@ let questions = [
     answer_2: "MongoDB",
     answer_3: "PostgreSQL",
     answer_4: "SQLite",
-    right_answer: "answer_2"
+    right_answer: "answer_2",
   },
   {
     question: "Welches dieser Programme ist ein Code-Editor?",
@@ -133,7 +133,7 @@ let questions = [
     answer_2: "Microsoft Word",
     answer_3: "Adobe Photoshop",
     answer_4: "Google Chrome",
-    right_answer: "answer_1"
+    right_answer: "answer_1",
   },
   {
     question: "Was ist JSON?",
@@ -141,7 +141,7 @@ let questions = [
     answer_2: "Eine Programmiersprache",
     answer_3: "Ein Webserver",
     answer_4: "Eine Datenbank",
-    right_answer: "answer_1"
+    right_answer: "answer_1",
   },
   {
     question: "Welche Programmiersprache wird oft für maschinelles Lernen verwendet?",
@@ -149,7 +149,7 @@ let questions = [
     answer_2: "PHP",
     answer_3: "C++",
     answer_4: "Java",
-    right_answer: "answer_1"
+    right_answer: "answer_1",
   },
   {
     question: "Was ist eine API?",
@@ -157,7 +157,7 @@ let questions = [
     answer_2: "Ein Betriebssystem",
     answer_3: "Ein Texteditor",
     answer_4: "Eine Art von Datenbank",
-    right_answer: "answer_1"
+    right_answer: "answer_1",
   },
 ];
 
@@ -178,15 +178,23 @@ function showCurrentQuestion() {
   document.getElementById("answer_3").innerHTML = questionObject.answer_3;
   document.getElementById("answer_4").innerHTML = questionObject.answer_4;
   document.getElementById("currentNumberOfQuestions").innerHTML = currentQuestion + 1;
-  setBackgroundColorsToWhite();
+  removeHighlightAnswerClasses();
   addOnclicks();
 }
 
 function addOnclicks() {
-  document.getElementById("answer_1").onclick = function() {doAnswer('answer_1')};
-  document.getElementById("answer_2").onclick = function() {doAnswer('answer_2')};
-  document.getElementById("answer_3").onclick = function() {doAnswer('answer_3')};
-  document.getElementById("answer_4").onclick = function() {doAnswer('answer_4')};
+  document.getElementById("answer_1").onclick = function () {
+    doAnswer("answer_1");
+  };
+  document.getElementById("answer_2").onclick = function () {
+    doAnswer("answer_2");
+  };
+  document.getElementById("answer_3").onclick = function () {
+    doAnswer("answer_3");
+  };
+  document.getElementById("answer_4").onclick = function () {
+    doAnswer("answer_4");
+  };
 }
 
 function removeOnclicks() {
@@ -199,13 +207,11 @@ function removeOnclicks() {
 function showNextQuestion() {
   if (currentQuestion + 1 == questions.length) {
     showEndDialog();
-  }
-  else if (currentQuestion < questions.length && nextQuestionAvialable) {
+  } else if (currentQuestion < questions.length && nextQuestionAvialable) {
     currentQuestion++;
     showCurrentQuestion();
     nextQuestionAvialable = false;
-  }
-  else {
+  } else {
     return;
   }
 }
@@ -226,10 +232,9 @@ function hideEndDialog() {
 function doAnswer(answer) {
   if (answer == questions[currentQuestion].right_answer) {
     chooseRightAnswer(answer);
-    colorRightAnswerGreen(answer);
-  }
-  else {
-    colorWrongAnswerRed(answer);
+    highlightRightAnswer(answer);
+  } else {
+    highlightWrongAnswer(answer);
     chooseFalseAnswer(answer);
   }
 }
@@ -237,8 +242,8 @@ function doAnswer(answer) {
 function chooseRightAnswer() {
   nextQuestionAvialable = true;
   removeOnclicks();
-  rigthAnswers ++;
-  console.log(rigthAnswers); 
+  rigthAnswers++;
+  console.log(rigthAnswers);
 }
 
 function chooseFalseAnswer() {
@@ -247,17 +252,21 @@ function chooseFalseAnswer() {
   console.log("got the false answer");
 }
 
-function colorRightAnswerGreen(answer) {
-  document.getElementById(answer).style.backgroundColor = "green";
+function highlightRightAnswer(answer) {
+  document.getElementById(answer).classList.add("highlight-right-answer");
 }
 
-function colorWrongAnswerRed(answer) {
-  document.getElementById(answer).style.backgroundColor = "red";
+function highlightWrongAnswer(answer) {
+  document.getElementById(answer).classList.add("highlight-wrong-answer");
 }
 
-function setBackgroundColorsToWhite() {
-  document.getElementById("answer_1").style.backgroundColor = "white";
-  document.getElementById("answer_2").style.backgroundColor = "white";
-  document.getElementById("answer_3").style.backgroundColor = "white";
-  document.getElementById("answer_4").style.backgroundColor = "white";
+function removeHighlightAnswerClasses() {
+  document.getElementById("answer_1").classList.remove("highlight-right-answer");
+  document.getElementById("answer_2").classList.remove("highlight-right-answer");
+  document.getElementById("answer_3").classList.remove("highlight-right-answer");
+  document.getElementById("answer_4").classList.remove("highlight-right-answer");
+  document.getElementById("answer_1").classList.remove("highlight-wrong-answer");
+  document.getElementById("answer_2").classList.remove("highlight-wrong-answer");
+  document.getElementById("answer_3").classList.remove("highlight-wrong-answer");
+  document.getElementById("answer_4").classList.remove("highlight-wrong-answer");
 }
