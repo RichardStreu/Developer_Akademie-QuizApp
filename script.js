@@ -167,6 +167,9 @@ let nextQuestionAvialable = false;
 let rigthAnswers = 0;
 const nextQuestBtnRef = document.getElementById("nextQuestBtn");
 
+let correctAnswerAudio = new Audio("./notes/correct-answer.mp3");
+let wrongAnswerAudio = new Audio("./notes/wrong-answer.mp3");
+
 function init() {
   document.getElementById("questionsLength").innerHTML = questions.length;
   showCurrentQuestion();
@@ -241,9 +244,11 @@ function doAnswer(answer) {
   if (answer == rightAnswer) {
     rigthAnswers++;
     highlightRightAnswer(answer);
+    playCorrectAnswerAudio();
   } else {
     highlightWrongAnswer(answer);
     highlightRightAnswer(rightAnswer);
+    playWrongAnswerAudio();
   }
 }
 
@@ -265,4 +270,12 @@ function updateProgressBar() {
   document.getElementById("progressBar").style.width = `${progressInPercent}%`;
   document.getElementById("progressBar").setAttribute("aria-valuenow", progressInPercent);
   document.getElementById("progressBar").innerText = `${progressInPercent}%`;
+}
+
+function playCorrectAnswerAudio() {
+  correctAnswerAudio.play();
+}
+
+function playWrongAnswerAudio() {
+  wrongAnswerAudio.play();
 }
